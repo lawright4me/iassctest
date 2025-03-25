@@ -9,7 +9,7 @@ public class Auth {
 
     @Test
     public void testPostRequest() {
-        // URL API, который вы хотите протестировать
+        
         String baseUrl = "http://iassc2.otn.phoenixit.ru/main/api/v1/login";
 
         String cookie = given()
@@ -18,14 +18,14 @@ public class Auth {
                 .queryParam("username", "superuser")
                 .queryParam("password", "superuser")
                 .when()
-                .post(baseUrl) // Используем базовый URL
+                .post(baseUrl) 
                 .then()
-                .statusCode(200) // Проверка кода состояния
-                .header("Set-Cookie", notNullValue()) // Проверка содержания
-                .log().all() // Логируем все детали ответа
-                .extract().cookie("SC_SESSION"); // Извлекаем значение заголовка Set-Cookie
+                .statusCode(200) 
+                .header("Set-Cookie", notNullValue()) 
+                .log().all() 
+                .extract().cookie("SC_SESSION"); 
 
-        // Логируем значение переменной cookie
+        
         System.out.println("Cookie: " + cookie);
     }
 }
