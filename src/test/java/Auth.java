@@ -9,7 +9,7 @@ public class Auth {
     public static String cookie;
 
     @Test
-    public void testPostRequest() {
+    public void authPost() {
         String baseUrl = "http://iassc3.otn.phoenixit.ru/main/api/v1/login";
 
         cookie = given()
