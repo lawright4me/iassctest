@@ -23,7 +23,7 @@ public class Auth {
                 .statusCode(200)
                 .header("Set-Cookie", notNullValue())
                 .log().all()
-                .extract().cookie("SC_SESSION");
+                .extract().header("Set-Cookie");
 
         System.out.println("Cookie: " + cookie);
     }
