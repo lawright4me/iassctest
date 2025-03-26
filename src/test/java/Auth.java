@@ -1,4 +1,4 @@
-package com.example;
+
 
 import org.junit.jupiter.api.Test;
 
@@ -7,25 +7,30 @@ import static org.hamcrest.Matchers.notNullValue;
 
 public class Auth {
 
+    public static String cookie;
+
     @Test
     public void testPostRequest() {
-        
-        String baseUrl = "http://iassc2.otn.phoenixit.ru/main/api/v1/login";
+        String baseUrl = "http://iassc3.otn.phoenixit.ru/main/api/v1/login";
 
-        String cookie = given()
+        cookie = given()
                 .header("Content-Type", "application/json")
                 .header("Accept", "*/*")
                 .queryParam("username", "superuser")
                 .queryParam("password", "superuser")
                 .when()
-                .post(baseUrl) 
+                .post(baseUrl)
                 .then()
-                .statusCode(200) 
-                .header("Set-Cookie", notNullValue()) 
-                .log().all() 
-                .extract().cookie("SC_SESSION"); 
+                .statusCode(200)
+                .header("Set-Cookie", notNullValue())
+                .log().all()
+                .extract().cookie("SC_SESSION");
 
-        
         System.out.println("Cookie: " + cookie);
     }
+
+    public static String getCookie() {
+        return cookie;
+    }
 }
+
