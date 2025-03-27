@@ -4,6 +4,7 @@ import java.nio.file.Files;
 import java.nio.file.Paths;
 
 import static io.restassured.RestAssured.given;
+import static io.restassured.module.jsv.JsonSchemaValidator.matchesJsonSchemaInClasspath;
 
 public class createIncident {
     @Test
@@ -21,6 +22,7 @@ public class createIncident {
                 .post("http://iassc3.otn.phoenixit.ru/main/api/v1/incident/save")
                 .then()
                 .statusCode(200)
+                .body(matchesJsonSchemaInClasspath("createincidentjsonSchema.json"))
                 .log().all();
 
     }

@@ -10,7 +10,7 @@ public class createDecision {
     @Test
     public void createDecision() throws IOException {
 
-        String jsonFilePath = "src/test/resources/createdecision.json";
+        String jsonFilePath = "src/test/resources/createdecisionKREPOST.json";
         String jsonRequestBody = new String(Files.readAllBytes(Paths.get(jsonFilePath)));
 
         given()
