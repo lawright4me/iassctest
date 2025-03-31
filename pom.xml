@@ -40,7 +40,11 @@
             <version>20250107</version> <!-- Проверьте на последнюю версию -->
         </dependency>
 
-
+        <dependency>
+            <groupId>org.seleniumhq.selenium</groupId>
+            <artifactId>selenium-java</artifactId>
+            <version>4.1.0</version>
+        </dependency>
 
         <dependency>
             <groupId>org.junit.jupiter</groupId>
@@ -81,8 +85,8 @@
                 <version>3.0.0-M5</version>
                 <configuration>
                     <includes>
-                        <include>**/*Auth.java</include>
-                        <include>**/*createIncident.java</include>
+                        <include>**/*api.Auth.java</include>
+                        <include>**/*api.createIncident.java</include>
                     </includes>
                     <forkCount>1</forkCount>
                     <reuseForks>true</reuseForks>

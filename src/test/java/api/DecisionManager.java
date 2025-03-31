@@ -1,6 +1,7 @@
+package api;
+
 import io.restassured.RestAssured;
 import io.restassured.response.Response;
-import org.json.JSONObject;
 
 import java.io.File;
 import java.sql.Connection;
@@ -18,7 +19,7 @@ public class DecisionManager {
     private final String dbUrl;
     private final String dbUser;
     private final String dbPassword;
-    private final String cookieValue = "SC_SESSION=ZjhlMjk1OWQtY2Q2ZS00MjI0LTk0MzQtZTc5MDk4ZTRhNzk5; Max-Age=7200; Expires=Thu, 27 Mar 2025 15:18:17 GMT; Domain=phoenixit.ru; Path=/; HttpOnly";
+    private final String cookieValue = "SC_SESSION=MzY1YmYwZDUtNDk1Zi00ODI1LTlhZGUtMWI2ZTBjNWFjYTEw; Max-Age=7200; Expires=Sat, 29 Mar 2025 18:58:13 GMT; Domain=phoenixit.ru; Path=/; HttpOnly";
 
     public DecisionManager(String apiUrl, String dbUrl, String dbUser, String dbPassword) {
         this.apiUrl = apiUrl;
