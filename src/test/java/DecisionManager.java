@@ -1,6 +1,7 @@
 import io.restassured.RestAssured;
 import io.restassured.response.Response;
 import org.json.JSONObject;
+import org.junit.jupiter.api.Test;
 
 import java.io.File;
 import java.sql.Connection;
@@ -18,7 +19,7 @@ public class DecisionManager {
     private final String dbUrl;
     private final String dbUser;
     private final String dbPassword;
-    private final String cookieValue = "SC_SESSION=ZjhlMjk1OWQtY2Q2ZS00MjI0LTk0MzQtZTc5MDk4ZTRhNzk5; Max-Age=7200; Expires=Thu, 27 Mar 2025 15:18:17 GMT; Domain=phoenixit.ru; Path=/; HttpOnly";
+    private final String cookieValue = "SC_SESSION=ODk1MDEwM2ItMzUxOS00NzMxLWJkYTYtNmU4NGY2ZTA0MTUx; Max-Age=7200; Expires=Thu, 3 Apr 2025 09:26:58 GMT; Domain=phoenixit.ru; Path=/; HttpOnly";
 
     public DecisionManager(String apiUrl, String dbUrl, String dbUser, String dbPassword) {
         this.apiUrl = apiUrl;
@@ -27,28 +28,36 @@ public class DecisionManager {
         this.dbPassword = dbPassword;
     }
 
-    public List<Integer> createDecisions(List<String> jsonFiles) throws Exception {
+    public List<Integer> createDecisions(List<String> jsonFiles) {
         List<Integer> decisionIds = new ArrayList<>();
 
         for (String jsonFilePath : jsonFiles) {
             File jsonFile = new File(jsonFilePath);
 
+            // Отправка запроса и получение ответа
             Response response = RestAssured.given()
                     .contentType("application/json")
                     .body(jsonFile)
                     .header("Cookie", cookieValue)
                     .post(apiUrl);
 
+            // Проверка статуса ответа
             if (response.getStatusCode() == 200) {
-                decisionIds.add(response.jsonPath().getInt("data"));
-            } else {
-                throw new RuntimeException("Failed : decisions don't create : " + response.getStatusCode());
+
+                decisionIds.add(response.jsonPath().getInt("data")); // Получаем ID решения
+            }
+            else if (response.getStatusCode() == 201) {
+                int decisionId = response.jsonPath().getInt("data");
+            }
+            else {
+                throw new RuntimeException("Failed: decisions don't create. Status: " + response.getStatusCode());
             }
         }
         return decisionIds;
     }
 
-    // Метод для обновления решений в базе данных
+
+                // Метод для обновления решений в базе данных
     public void updateDecisions(Map<Integer, String> decisionUpdates) throws Exception {
         try (Connection connection = DriverManager.getConnection(dbUrl, dbUser, dbPassword)) {
             String updateSQL = "UPDATE sc.tb_decision SET incident_class_code = ? WHERE decision_id = ?";

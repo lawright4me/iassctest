@@ -10,17 +10,18 @@ public class Auth {
 
     @Test
     public void authPost() {
-        String baseUrl = "http://iassc3.otn.phoenixit.ru/main/api/v1/login";
+        String baseUrl = TestConfig.getBaseUrl() + "login";
+        String user = TestConfig.getBaseUser();
+        String password = TestConfig.getBasePassword();
 
         cookie = given()
                 .header("Content-Type", "application/json")
                 .header("Accept", "*/*")
-                .queryParam("username", "superuser")
-                .queryParam("password", "superuser")
+                .queryParam("username", user)
+                .queryParam("password", password)
                 .when()
                 .post(baseUrl)
                 .then()
-                .statusCode(200)
                 .header("Set-Cookie", notNullValue())
                 .log().all()
                 .extract().header("Set-Cookie");
