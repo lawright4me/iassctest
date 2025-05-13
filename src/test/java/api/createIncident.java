@@ -6,11 +6,11 @@ import java.nio.file.Paths;
 import static io.restassured.RestAssured.given;
 import static io.restassured.module.jsv.JsonSchemaValidator.matchesJsonSchemaInClasspath;
 
-public class createDecision {
+public class createIncident {
     @Test
-    public void createDecision() throws IOException {
+    public void testCreateIncident() throws IOException {
 
-        String jsonFilePath = "src/test/resources/createdecisionKREPOST.json";
+        String jsonFilePath = "src/test/resources/createincident.json";
         String jsonRequestBody = new String(Files.readAllBytes(Paths.get(jsonFilePath)));
 
         given()
@@ -19,10 +19,11 @@ public class createDecision {
                 .header("Content-Type", "application/json")
                 .header("Cookie", Auth.cookie)
                 .when()
-                .post("http://iassc3.otn.phoenixit.ru/main/api/v1/decision")
+                .post("http://iassc3.otn.phoenixit.ru/main/api/v1/incident/save")
                 .then()
                 .statusCode(200)
-                .body(matchesJsonSchemaInClasspath("createdecisionjsonSchema.json"))
+                .body(matchesJsonSchemaInClasspath("createincidentjsonSchema.json"))
                 .log().all();
+
     }
 }
