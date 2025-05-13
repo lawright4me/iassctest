@@ -1,0 +1,12 @@
+{
+    "decisionId": {{decisionId}},
+    "name": "fsd",
+    "plannedExecutionDay": "1",
+    "executorGroupId": 6,
+    "plannedExecutionDay": 2,
+    "startTime": "2025-03-23T12:27:25.324Z",
+    "deadline": "2025-03-27T12:27:25.324Z",
+    "description": "sfd",
+    "executorId": -4,
+    "plannedExecutionDay": 1
+}

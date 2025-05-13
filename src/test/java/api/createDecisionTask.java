@@ -12,17 +12,20 @@ import static io.restassured.RestAssured.*;
 import static io.restassured.module.jsv.JsonSchemaValidator.matchesJsonSchemaInClasspath;
 
 public class createDecisionTask {
-    public static ResponseBody decisionTask;
-    String jsonFilePath = "src/test/resources/json/decisionTask.json";
-    String jsonRequestBody = new String(Files.readAllBytes(Paths.get(jsonFilePath)));
+
+    String jsonFilePath = "src/test/resources/createDecisionTask.json";
+    String jsonTemplate = new String(Files.readAllBytes(Paths.get(jsonFilePath)));
+    String jsonRequestBody = jsonTemplate.replace("{{decisionId}}", String.valueOf(createDecision.decision));
 
     public createDecisionTask() throws IOException {
     }
 
     @Test
     public void createTaskTest() {
-       decisionTask =  given()
+     Integer  decisionTask =  given()
+               .log().all()
                 .contentType("application/json")
+               .header("Cookie", Auth.cookie)
                .body(jsonRequestBody)
                 .when()
                 .post(TestConfig.getBaseUrl() + "decision-task")
