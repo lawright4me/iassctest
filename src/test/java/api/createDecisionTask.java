@@ -1,0 +1,36 @@
+package api;
+
+import io.restassured.response.ResponseBody;
+import org.hamcrest.Matchers;
+import org.junit.jupiter.api.Test;
+
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Paths;
+
+import static io.restassured.RestAssured.*;
+import static io.restassured.module.jsv.JsonSchemaValidator.matchesJsonSchemaInClasspath;
+
+public class createDecisionTask {
+    public static ResponseBody decisionTask;
+    String jsonFilePath = "src/test/resources/json/decisionTask.json";
+    String jsonRequestBody = new String(Files.readAllBytes(Paths.get(jsonFilePath)));
+
+    public createDecisionTask() throws IOException {
+    }
+
+    @Test
+    public void createTaskTest() {
+       decisionTask =  given()
+                .contentType("application/json")
+               .body(jsonRequestBody)
+                .when()
+                .post(TestConfig.getBaseUrl() + "decision-task")
+               .then()
+               .statusCode(200)
+               .log().all()
+               .extract()
+               .path("data");
+       System.out.println("decision task = " + decisionTask);
+    }
+}

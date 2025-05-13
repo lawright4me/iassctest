@@ -11,17 +11,15 @@ public class Auth {
 
     @Test
     public void authPost() {
-        String baseUrl = TestConfig.getBaseUrl() + "login";
-        String user = TestConfig.getBaseUser();
-        String password = TestConfig.getBasePassword();
+        System.out.println("Запрос на аутенфикацию в системе ИАС СЦ");
 
         cookie = given()
                 .header("Content-Type", "application/json")
                 .header("Accept", "*/*")
-                .queryParam("username", user)
-                .queryParam("password", password)
+                .queryParam("username", TestConfig.getBaseUser())
+                .queryParam("password", TestConfig.getBasePassword())
                 .when()
-                .post(baseUrl)
+                .post(TestConfig.getBaseUrl() + "login")
                 .then()
                 .header("Set-Cookie", notNullValue())
                 .log().all()
