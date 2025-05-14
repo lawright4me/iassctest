@@ -1,0 +1,112 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "type": "object",
+  "properties": {
+    "data": {
+      "type": "object",
+      "properties": {
+        "content": {
+          "type": "array",
+          "items": [
+            {
+              "type": "object",
+              "properties": {
+                "id": {
+                  "type": "integer"
+                },
+                "login": {
+                  "type": "string"
+                },
+                "fio": {
+                  "type": "string"
+                },
+                "rankName": {
+                  "type": "string"
+                },
+                "positionName": {
+                  "type": "string"
+                },
+                "departmentShortTitle": {
+                  "type": "string"
+                },
+                "role": {
+                  "type": "null"
+                }
+              },
+              "required": [
+                "id",
+                "login",
+                "fio",
+                "rankName",
+                "positionName",
+                "departmentShortTitle",
+                "role"
+              ]
+            },
+            {
+              "type": "object",
+              "properties": {
+                "id": {
+                  "type": "integer"
+                },
+                "login": {
+                  "type": "string"
+                },
+                "fio": {
+                  "type": "string"
+                },
+                "rankName": {
+                  "type": "string"
+                },
+                "positionName": {
+                  "type": "string"
+                },
+                "departmentShortTitle": {
+                  "type": "string"
+                },
+                "role": {
+                  "type": "null"
+                }
+              },
+              "required": [
+                "id",
+                "login",
+                "fio",
+                "rankName",
+                "positionName",
+                "departmentShortTitle",
+                "role"
+              ]
+            }
+          ]
+        },
+        "size": {
+          "type": "integer"
+        },
+        "totalElements": {
+          "type": "integer"
+        },
+        "totalPages": {
+          "type": "integer"
+        },
+        "number": {
+          "type": "integer"
+        }
+      },
+      "required": [
+        "content",
+        "size",
+        "totalElements",
+        "totalPages",
+        "number"
+      ]
+    },
+    "status": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "data",
+    "status"
+  ]
+}

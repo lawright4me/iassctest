@@ -1,0 +1,9 @@
+{
+	"groupForceCode": "PPS",
+	"functionalGroupCode": "GRUPPA_ZADERZHANIYA",
+	"contingentPlan": "10",
+	"weapons": false,
+	"armoredMachine": false,
+	"radioStation": false,
+	"forces": false
+}

@@ -1,0 +1,9 @@
+{
+	"stateCode": "VOINSKAYA_CHAST,_PODRAZDELENIE_VS_RF",
+	"functionalGroupCode": "GRUPPA_BLOKIROVANIYA",
+	"contingentPlan": "3",
+	"weapons": false,
+	"armoredMachine": false,
+	"radioStation": false,
+	"forces": false
+}

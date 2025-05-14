@@ -1,12 +1,10 @@
 {
     "decisionId": {{decisionId}},
-    "name": "fsd",
+    "name": "Эвакуация",
     "plannedExecutionDay": "1",
     "executorGroupId": 6,
     "plannedExecutionDay": 2,
-    "startTime": "2025-03-23T12:27:25.324Z",
-    "deadline": "2025-03-27T12:27:25.324Z",
-    "description": "sfd",
+    "description": "Убедитесь, что все люди покинули здание через ближайшие выходы.",
     "executorId": -4,
     "plannedExecutionDay": 1
 }

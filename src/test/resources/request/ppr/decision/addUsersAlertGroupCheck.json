@@ -1,0 +1,14 @@
+{
+	"dto": {
+		"decisionAlertGroupId": "alertgroup",
+		"isOnlyCurrentUserDepartment": false
+	},
+	"page": 0,
+	"size": 10,
+	"sort": [
+		{
+			"field": "login",
+			"direction": "ASC"
+		}
+	]
+}

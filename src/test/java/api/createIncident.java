@@ -26,7 +26,7 @@ public class createIncident {
                 .post(getBaseUrl() + "incident/save")
                 .then()
                 .statusCode(200)
-                .body(matchesJsonSchemaInClasspath("createincidentjsonSchema.json"))
+                .body(matchesJsonSchemaInClasspath("src/test/java/resources/response/schema/createincidentjsonSchema.json"))
                 .log().all()
                 .extract()
                 .path("data");
