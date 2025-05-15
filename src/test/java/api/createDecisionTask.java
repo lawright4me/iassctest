@@ -23,7 +23,7 @@ public class createDecisionTask {
 
     String jsonFilePath = "src/test/resources/request/ppr/decision/createDecisionTask.json";
     String jsonTemplate = new String(Files.readAllBytes(Paths.get(jsonFilePath)));
-    String jsonRequestBodyDecisionTask = jsonTemplate.replace("{{decisionId}}", String.valueOf(createDecision.decision));
+    String jsonRequestBodyDecisionTask = jsonTemplate.replace("{{decisionId}}", String.valueOf(createDecision.parentDecision));
 
     String jsonFilePathGroupForce = "src/test/resources/request/ppr/decision/createDecisionTaskGroupForce.json"; // тело для добавления группы задействоаемых
     String jsonRequestBodyGroupForce = new String(Files.readAllBytes(Paths.get(jsonFilePathGroupForce)));       // сил и средств

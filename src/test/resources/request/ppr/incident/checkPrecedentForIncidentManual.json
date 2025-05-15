@@ -1,0 +1,19 @@
+{
+	"dto": {
+		"types": [],
+		"characters": [],
+		"categories": [],
+		"scales": [],
+		"statuses": [
+			"Прецедент"
+		]
+	},
+	"page": 0,
+	"size": 10,
+	"sort": [
+		{
+			"field": "number",
+			"direction": "DESC"
+		}
+	]
+}

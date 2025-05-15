@@ -12,16 +12,16 @@ import static io.restassured.module.jsv.JsonSchemaValidator.matchesJsonSchemaInC
 
 @TestMethodOrder(MethodOrderer.OrderAnnotation.class)
 public class createDecisionAlertGroup {
-    String jsonFilePath = "src/test/resources/request/createDecisionAlertGroup.json";
+    String jsonFilePath = "src/test/resources/request/ppr/decision/createDecisionAlertGroup.json";
     String jsonTemplate = new String(Files.readAllBytes(Paths.get(jsonFilePath)));
-    String jsonRequestBodyAlertGroup = jsonTemplate.replace("{{decisionId}}", String.valueOf(createDecision.decision));
+    String jsonRequestBodyAlertGroup = jsonTemplate.replace("{{decisionId}}", String.valueOf(createDecision.parentDecision));
 
-    String jsonFilePathGroup = "src/test/resources/request/addUsersForAlertGroup.json";
+    String jsonFilePathGroup = "src/test/resources/request/ppr/decision/addUsersForAlertGroup.json";
     String jsonRequestBodyAlertGroupAddUsers = new String(Files.readAllBytes(Paths.get(jsonFilePathGroup)));
 
-    String jsonFilePathAlertGroupCheck = "src/test/resources/request/checkAlertGroup.json";
+    String jsonFilePathAlertGroupCheck = "src/test/resources/request/ppr/decision/checkAlertGroup.json";
     String jsonRequestBodyAlertGroupCheckTemplate = new String(Files.readAllBytes(Paths.get(jsonFilePathAlertGroupCheck)));
-    String jsonRequestBodyAlertGroupCheck = jsonRequestBodyAlertGroupCheckTemplate.replace("{{decisionId}}", String.valueOf(createDecision.decision));
+    String jsonRequestBodyAlertGroupCheck = jsonRequestBodyAlertGroupCheckTemplate.replace("{{decisionId}}", String.valueOf(createDecision.parentDecision));
 
 
     public static Integer alertGroup;
@@ -51,7 +51,7 @@ public class createDecisionAlertGroup {
     public static Integer getAlertGroup() {
         return alertGroup;
     }
-    String jsonFilePathAlertGroupUsersAddCheck = "src/test/resources/request/addUsersAlertGroupCheck.json";
+    String jsonFilePathAlertGroupUsersAddCheck = "src/test/resources/request/ppr/decision/addUsersAlertGroupCheck.json";
     String jsonRequestBodyAlertGroupUsersAddCheckTemplate = new String(Files.readAllBytes(Paths.get(jsonFilePathAlertGroupUsersAddCheck)));
     String jsonRequestBodyAlertGroupUsersAddCheck = jsonRequestBodyAlertGroupUsersAddCheckTemplate.replace("\"alertgroup\"", String.valueOf(createDecisionAlertGroup.alertGroup));
 

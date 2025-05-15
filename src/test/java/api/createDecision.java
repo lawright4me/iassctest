@@ -9,14 +9,14 @@ import static io.restassured.RestAssured.*;
 import static io.restassured.module.jsv.JsonSchemaValidator.matchesJsonSchemaInClasspath;
 
 public class createDecision {
-    public static Integer decision;
+    public static Integer parentDecision;
     @Test
     public void createDecision() throws IOException {
         System.out.println("Запрос на создание decision");
         String jsonFilePath = "src/test/resources/createdecisionKREPOST.json";
         String jsonRequestBody = new String(Files.readAllBytes(Paths.get(jsonFilePath)));
 
-        decision = given()
+        parentDecision = given()
                 .contentType("application/json")
                 .body(jsonRequestBody)
                 .header("Content-Type", "application/json")
@@ -29,9 +29,9 @@ public class createDecision {
                 .log().all()
                 .extract()
                 .path("data");
-        System.out.println("id decision: " + decision);
+        System.out.println("id decision: " + parentDecision);
 
 
     }
-    public static Integer getDecision() {return decision;}
+    public static Integer getDecision() {return parentDecision;}
 }
