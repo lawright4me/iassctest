@@ -1,0 +1,5 @@
+{
+	"entityId": {{incident}},
+	"entityType": "INCIDENT",
+	"mlTaskType": "INCIDENT_KEY_FACTORS"
+}

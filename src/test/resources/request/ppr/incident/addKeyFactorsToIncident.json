@@ -1,0 +1,12 @@
+[
+	{
+		"indicatorId": {{indicatorMl}},
+		"statusCode": "KEY",
+		"deleted": false
+	},
+	{
+		"indicatorId": {{indicatorManual}},
+		"statusCode": "DETERMINING",
+		"deleted": false
+	}
+]

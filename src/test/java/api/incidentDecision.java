@@ -16,7 +16,7 @@ public class incidentDecision {
                 .header("Accept", "application/json")
                 .header("Cookie", Auth.cookie)
                 .when()
-                .post(TestConfig.getBaseUrl() + "incident-decision/" + createDecision.parentDecision + "/incident/" + createIncident.incident )
+                .post(TestConfig.getBaseUrl() + "incident-decision/" + createDecision.parentDecision + "/incident/" )
                 .then()
                 .statusCode(200)
                 .log().ifValidationFails()
